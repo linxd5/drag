@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("div1");
+
+            oDiv.onmousedown = function (event) {
+                // The relative position between mouse and the div
+                var disX = event.clientX - oDiv.offsetLeft;
+                var disY = event.clientY - oDiv.offsetTop;
+
+                document.onmousemove = function (event) {
+                    var divLeft = event.clientX - disX;
+                    var divTop = event.clientY - disY;
+
+                    // forbid runing out of the client;
+                    if (divLeft < 0) divLeft = 0;
+                    if (divLeft > document.documentElement.clientWidth - oDiv.offsetWidth) {
+                        divLeft = document.documentElement.clientWidth - oDiv.offsetWidth;
+                    }
+                    if (divTop < 0) divTop = 0;
+                    if (divTop > document.documentElement.clientHeight - oDiv.offsetHeight) {
+                        divTop = document.documentElement.clientHeight - oDiv.offsetHeight;
+                    }
+
+                    oDiv.style.left = divLeft + "px";
+                    oDiv.style.top = divTop + "px";
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
