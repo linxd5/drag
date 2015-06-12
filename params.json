@@ -1,0 +1,1 @@
+{"name":"Drag","tagline":"","body":"# drag\r\n\r\n要求：实现div块的拖拽\r\n\r\n原理：拖拽过程中鼠标点和div块的相对位置保持不变。\r\n\r\n \r\n\r\n需要理解三点：\r\n\r\n1. 为什么要把onmousemove，onmouseup加在document上面 ？\r\n\r\n2. onmouseup要怎么使用 ？\r\n\r\n3. 如何防止div块跑出边界 ？\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
